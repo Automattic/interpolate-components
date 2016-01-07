@@ -4,18 +4,18 @@
   "description": "A module to turn strings into structured React components without dangerouslyInsertInnerHTML()",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Automattic/interpolate-components.git"
+    "url": "git+https://github.com/Automattic/interpolate-components.git"
   },
   "main": "index.js",
   "keywords": [
-	"react",
-	"react-component",
-	"interpolation"
+    "react",
+    "react-component",
+    "interpolation"
   ],
   "peerDependencies": {
     "react": "^0.14.3",
     "react-addons-create-fragment": "^0.14.3",
-	"react-dom": "^0.14.3"
+    "react-dom": "^0.14.3"
   },
   "engines": {
     "node": ">=4.2.3"
@@ -24,7 +24,22 @@
     "test": "make test"
   },
   "devDependencies": {
-	"babel": "^5.8.12",
-	"mocha": "^2.3.4"
-  }
+    "babel": "^5.8.12",
+    "mocha": "^2.3.4"
+  },
+  "bugs": {
+    "url": "https://github.com/Automattic/interpolate-components/issues"
+  },
+  "homepage": "https://github.com/Automattic/interpolate-components#readme",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "react-addons-create-fragment": "^0.14.3",
+    "react": "^0.14.3",
+    "babel": "^5.8.12",
+    "react-dom": "^0.14.3"
+  },
+  "author": "Bob Ralian <bob.ralian@gmail.com> (http://github.com/rralian)",
+  "license": "GPL-2.0"
 }
