@@ -1,7 +1,7 @@
 {
   "name": "interpolate-components",
-  "version": "1.0.3",
-  "description": "A module to turn strings into structured React components without dangerouslyInsertInnerHTML()",
+  "version": "1.0.4",
+  "description": "Convert strings into structured React components.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Automattic/interpolate-components.git"

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4
+
+* Readme and package description edits.
+
 ## 1.0.3
 
 * Add changelog and tweak readme.
