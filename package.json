@@ -34,9 +34,9 @@
     "test": "test"
   },
   "dependencies": {
-    "react": "^0.14.3",
-    "react-addons-create-fragment": "^0.14.3",
-    "react-dom": "^0.14.3"
+    "react": "^0.14.3 || ^15.1.0",
+    "react-addons-create-fragment": "^0.14.3 || ^15.1.0",
+    "react-dom": "^0.14.3 || ^15.1.0"
   },
   "author": "Bob Ralian <bob.ralian@gmail.com> (http://github.com/rralian)",
   "license": "GPL-2.0"
