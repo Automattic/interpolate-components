@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.5
+
+* Bump to allow for React ^15.1.0, still supporting ^0.14.3
+
 ## 1.0.4
 
 * Readme and package description edits.
