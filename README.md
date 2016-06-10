@@ -42,5 +42,5 @@ const jsxExample = <p>{ children }</p>;
 # install dependencies
 npm install
 # run tests
-make test
+npm test
 ```
