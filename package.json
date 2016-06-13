@@ -12,10 +12,6 @@
     "react-component",
     "interpolation"
   ],
-  "engines": {
-    "node": ">=5.11.1",
-    "npm": ">=3.8.6"
-  },
   "scripts": {
     "compile": "babel -sd lib/ src/",
     "prepublish": "npm run compile",
