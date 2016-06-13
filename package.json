@@ -13,7 +13,8 @@
     "interpolation"
   ],
   "engines": {
-    "node": ">=4.2.3"
+    "node": ">=4.3.0",
+    "npm": ">=3.8.6"
   },
   "scripts": {
     "compile": "babel -sd lib/ src/",
