@@ -16,15 +16,17 @@
     "node": ">=4.2.3"
   },
   "scripts": {
-	"compile": "babel -sd lib/ src/",
-	"prepublish": "npm run compile",
-	"test": "make test"
+    "compile": "babel -sd lib/ src/",
+    "prepublish": "npm run compile",
+    "test": "mocha --require babel-register --reporter spec test/test.jsx"
   },
   "devDependencies": {
-    "babel": "^5.8.12",
-	"babel-core": "^5.8.12",
-    "babel-runtime": "^5.8.12",
-	"mocha": "^2.3.4"
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.9.1",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-register": "^6.9.0",
+    "mocha": "^2.3.4"
   },
   "bugs": {
     "url": "https://github.com/Automattic/interpolate-components/issues"
