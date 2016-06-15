@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.0
+* Update to Babel 6 and bump node testing version to 5.11.1
+
 ## 1.0.5
 
 * Bump to allow for React ^15.1.0, still supporting ^0.14.3
