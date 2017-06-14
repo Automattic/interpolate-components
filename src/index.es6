@@ -9,6 +9,12 @@ import createFragment from 'react-addons-create-fragment';
  */
 import tokenize from './tokenize';
 
+const DEFAULT_TAGS = {
+    componentOpen: ['{{', '}}'],
+    componentClose: ['{{/', '}}'],
+    componentSelfClosing: ['{{', '/}}'],
+};
+
 let currentMixedString;
 
 function getCloseIndex( openIndex, tokens ) {
@@ -95,7 +101,7 @@ function buildChildren( tokens, components ) {
 }
 
 function interpolate( options ) {
-	const { mixedString, components, throwErrors } = options;
+	const { mixedString, components, throwErrors, tags = DEFAULT_TAGS } = options;
 
 	currentMixedString = mixedString;
 
@@ -111,7 +117,15 @@ function interpolate( options ) {
 		return mixedString;
 	}
 
-	let tokens = tokenize( mixedString );
+	if ( typeof tags !== 'object' || ! tags.componentOpen || ! tags.componentClose || ! tags.componentSelfClosing ) {
+        if ( throwErrors ) {
+            throw new Error( `Interpolation Error: unable to process \`${ mixedString }\` because tags is invalid` );
+        }
+
+        return mixedString;
+	}
+
+	let tokens = tokenize( mixedString, tags );
 
 	try {
 		return buildChildren( tokens, components );
