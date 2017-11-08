@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.1
+* Move React and React-Dom to dev dependencies
+
 ## 1.1.0
 * Update to Babel 6 and bump node testing version to 5.11.1
 
