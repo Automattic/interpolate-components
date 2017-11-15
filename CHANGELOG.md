@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.2-alpha.1
+* Remove `react-addons-create-fragment` dependency, use `cloneElement` to specify a key manually instead.
+
 ## 1.1.1
 * Drop deprecated React.createClass, React.DOM from test
 * Bump to allow for React ^16.0.0

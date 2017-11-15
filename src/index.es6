@@ -2,7 +2,6 @@
  * External Dependencies
  */
 import React from 'react';
-import createFragment from 'react-addons-create-fragment';
 
 /**
  * Internal Dependencies
@@ -36,8 +35,7 @@ function getCloseIndex( openIndex, tokens ) {
 
 function buildChildren( tokens, components ) {
 	var children = [],
-		childrenObject = {},
-		openComponent, clonedOpenComponent, openIndex, closeIndex, token, i, grandChildTokens, grandChildren, siblingTokens, siblings;
+		clonedOpenComponent, openIndex, closeIndex, token, i, grandChildTokens, grandChildren, siblingTokens, siblings;
 
 	for ( i = 0; i < tokens.length; i++ ) {
 		token = tokens[ i ];
@@ -58,40 +56,29 @@ function buildChildren( tokens, components ) {
 			throw new Error( 'Missing opening component token: `' + token.value + '`' );
 		}
 		if ( token.type === 'componentOpen' ) {
-			openComponent = components[ token.value ];
 			openIndex = i;
-			break;
+
+			closeIndex = getCloseIndex( openIndex, tokens );
+			grandChildTokens = tokens.slice( ( openIndex + 1 ), closeIndex );
+			grandChildren = buildChildren( grandChildTokens, components );
+
+			clonedOpenComponent = React.cloneElement( components[ token.value ], { key: openIndex }, grandChildren );
+			children.push( clonedOpenComponent );
+			i = closeIndex;
+			continue;
 		}
 		// componentSelfClosing token
-		children.push( components[ token.value ] );
-		continue;
-	}
-
-	if ( openComponent ) {
-		closeIndex = getCloseIndex( openIndex, tokens );
-		grandChildTokens = tokens.slice( ( openIndex + 1 ), closeIndex );
-		grandChildren = buildChildren( grandChildTokens, components );
-		clonedOpenComponent = React.cloneElement( openComponent, {}, grandChildren );
-		children.push( clonedOpenComponent );
-
-		if ( closeIndex < tokens.length - 1 ) {
-			siblingTokens = tokens.slice( closeIndex + 1 );
-			siblings = buildChildren( siblingTokens, components );
-			children = children.concat( siblings );
+		if ( components[ token.value ] ) {
+			children.push( React.cloneElement( components[ token.value ], { key: i } ) );
 		}
+		continue;
 	}
 
 	if ( children.length === 1 ) {
 		return children[ 0 ];
 	}
 
-	children.forEach( ( child, index ) => {
-		if ( child ) {
-			childrenObject[ `interpolation-child-${index}` ] = child;
-		}
-	} );
-
-	return createFragment( childrenObject );
+	return children;
 }
 
 function interpolate( options ) {
