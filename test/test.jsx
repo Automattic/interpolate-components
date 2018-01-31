@@ -11,16 +11,13 @@ import React from 'react';
 import interpolateComponents from '../src/index';
 
 describe( 'interpolate-components', () => {
-	const input = React.DOM.input();
-	const div = React.DOM.div();
+	const input = <input />;
+	const div = <div />;
 	const link = <a href="#" />;
 	const em = <em />;
-	const CustomComponentClass = React.createClass( {
-		displayName: 'CustomComponentClass',
-		render() {
-			return <span className="special">{ this.props.intro }{ this.props.children }</span>;
-		}
-	} );
+	const CustomComponentClass = ( { children, intro } ) => (
+		<span className="special">{ intro }{ children }</span>
+	);
 
 	describe( 'with default container', () => {
 		it( 'should return a react object with a span container', () => {
