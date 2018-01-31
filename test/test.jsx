@@ -253,4 +253,48 @@ describe( 'interpolate-components', () => {
 			assert.equal( expectedResultString, ReactDomServer.renderToStaticMarkup( instance ) );
 		} );
 	} );
+
+	describe( 'custom tags', () => {
+		it( 'should allow custom tags', () => {
+            const expectedResultString = '<span><div>test</div> <input/></span>';
+            const interpolatedComponent = interpolateComponents( {
+                mixedString: '<<div>>test<</div>> <<input/>>',
+                components: {
+                    div: div,
+					input: input
+                },
+				tags: {
+                	componentOpen: [ '<<', '>>' ],
+                	componentClose: [ '<</', '>>' ],
+                	componentSelfClosing: [ '<<', '/>>' ],
+				}
+            } );
+            const instance = <span>{ interpolatedComponent }</span>;
+            assert.equal( expectedResultString, ReactDomServer.renderToStaticMarkup( instance ) );
+		} );
+
+		it( 'should throw if tags is not an object', () => {
+            assert.throws( () => {
+                interpolateComponents( {
+                    mixedString: 'test',
+                    components: {},
+					tags: '{{',
+                    throwErrors: true
+                } );
+            } );
+		} );
+
+        it( 'should throw if not all tags are provided', () => {
+            assert.throws( () => {
+                interpolateComponents( {
+                    mixedString: 'test',
+                    components: {},
+                    tags: {
+                        componentOpen: [ '{{', '}}' ],
+                    },
+                    throwErrors: true
+                } );
+            } );
+        } );
+	} );
 } );

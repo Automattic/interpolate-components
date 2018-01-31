@@ -11,6 +11,7 @@ Interpolate-Components takes a single options object as an argument and returns 
 
 - **mixedString** A string that contains component tokens to be interpolated
 - **components** An object with components assigned to named attributes
+- **tags** (optional) An object with custom tag syntax to be used
 - **throwErrors** (optional) Whether errors should be thrown (as in pre-production environments) or we should more gracefully return the un-interpolated original string (as in production). This is optional and is false by default.
 
 ## Component tokens
@@ -35,6 +36,20 @@ const children = interpolateComponents( {
 const jsxExample = <p>{ children }</p>;
 // when injected into the doc, will render as:
 // <p>This is a <em>fine</em> example.</p>
+```
+
+## Custom tag syntax
+
+```js
+interpolateComponents( {
+    mixedString: 'This uses <<em>>custom<</em>> syntax <<icon />>',
+    components: { em: <em />, icon: <Icon /> },
+    tags: {
+        componentOpen: [ '<<', '>>' ],
+        componentClose: [ '<</', '>>' ],
+        componentSelfClosing: [ '<<', '/>>' ],
+    }
+} );
 ```
 
 ## Testing
