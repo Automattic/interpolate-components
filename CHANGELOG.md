@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1
+* Drop deprecated React.createClass, React.DOM from test
+* Bump to allow for React ^16.0.0
+
 ## 1.1.0
 * Update to Babel 6 and bump node testing version to 5.11.1
 
