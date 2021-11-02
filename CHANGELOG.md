@@ -2,9 +2,10 @@
 
 ## 2.0.0
 * Breaking change: require React ^16.2.0 (for native Fragment support)
+* Breaking change: `react` and `react-com` are now `peerDependencies`.
 * Drop deprecated react-addons-create-fragment from library
 * Update to Babel 7
-* Add Terser to build pipeline, for minification
+* Add Terser to build pipeline for minification
 
 ## 1.1.1
 * Drop deprecated React.createClass, React.DOM from test

@@ -30,8 +30,14 @@
     "@babel/register": "^7.5.5",
     "mkdirp": "^0.5.1",
     "mocha": "^2.5.3",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "rimraf": "^2.6.3",
     "terser": "^4.1.2"
+  },
+  "peerDependencies": {
+    "react": ">=16.2.0",
+    "react-dom": ">=16.2.0"
   },
   "bugs": {
     "url": "https://github.com/Automattic/interpolate-components/issues"
@@ -39,10 +45,6 @@
   "homepage": "https://github.com/Automattic/interpolate-components#readme",
   "directories": {
     "test": "test"
-  },
-  "dependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
   },
   "author": "Bob Ralian <bob.ralian@gmail.com> (http://github.com/rralian)",
   "license": "GPL-2.0"
