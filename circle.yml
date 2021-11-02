@@ -1,3 +1,10 @@
-machine:
-  node:
-    version: 5.11.1
+version: 2.1
+
+jobs:
+  test:
+    docker:
+      - image: node:lts-slim
+    steps:
+      - checkout
+      - npm install
+      - npm run test
